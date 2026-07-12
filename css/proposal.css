@@ -71,7 +71,7 @@ body{
 .proposal-card{
 
     width:100%;
-    max-width:430px;
+    max-width:520px;
 
     padding:30px;
 
@@ -684,7 +684,7 @@ hr{
 
     .proposal-card{
 
-        max-width:420px;
+        max-width:560px;
 
     }
 
@@ -694,9 +694,9 @@ hr{
 
     .proposal-card{
 
-        width:95%;
+        width:90%;
 
-        max-width:none;
+        max-width:520px;
 
         padding:25px;
 
@@ -759,7 +759,7 @@ hr{
 
     .proposal-card{
 
-        width:100%;
+        width:460px;
 
         padding:22px 18px;
 
