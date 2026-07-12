@@ -229,7 +229,8 @@
 
       <button
         id="openBtn"
-        class="btn btn-danger btn-open w-100 d-none"
+        class="btn btn-danger btn-open w-100"
+        style="display: none"
         onclick="openProposal()"
       >
         🎁 Open Surprise
@@ -248,31 +249,22 @@
         document.getElementById("sender").innerHTML = "Someone";
       }
 
-    function openProposal(){
+      function openProposal() {
+        const senderName = sender && sender !== "null" ? sender : "Someone";
 
-    const senderName = sender && sender !== "null"
-        ? sender
-        : "Someone";
-
-    window.location.href =
-        "proposal.html?from=" +
-        encodeURIComponent(senderName);
-
-}
+        window.location.href =
+          "proposal.html?from=" + encodeURIComponent(senderName);
+      }
       const envelope = document.querySelector(".envelope");
-
       const cardBox = document.getElementById("cardBox");
+      const openBtn = document.getElementById("openBtn");
 
       envelope.onclick = function () {
-        envelope.innerHTML = "📩";
+        document.getElementById("envelopeArea").style.display = "none";
 
-        document.querySelector("#envelopeArea h3").innerHTML = "Opening... ❤️";
+        cardBox.classList.remove("d-none");
 
-        setTimeout(() => {
-          document.getElementById("envelopeArea").style.display = "none";
-
-          cardBox.classList.remove("d-none");
-        }, 1000);
+        openBtn.style.display = "block";
       };
     </script>
   </body>
