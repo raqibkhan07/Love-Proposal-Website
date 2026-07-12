@@ -1,0 +1,892 @@
+/* =====================================================
+   Proposal Page - Premium CSS
+   Part B.1
+===================================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:auto;
+
+    overflow-x:hidden;
+
+    color:#fff;
+
+    background:linear-gradient(-45deg,
+    #ff4d6d,
+    #ff758f,
+    #ff8fab,
+    #c77dff,
+    #7b2cbf);
+
+    background-size:400% 400%;
+
+    animation:bgAnimation 15s ease infinite;
+
+    position:relative;
+
+}
+
+/* Animated Background */
+
+@keyframes bgAnimation{
+
+0%{
+
+background-position:0% 50%;
+
+}
+
+50%{
+
+background-position:100% 50%;
+
+}
+
+100%{
+
+background-position:0% 50%;
+
+}
+
+}
+
+
+/* =====================================================
+Container
+===================================================== */
+
+.container{
+
+position:relative;
+
+z-index:5;
+
+}
+
+
+/* =====================================================
+Glass Card
+===================================================== */
+
+.proposal-card{
+
+background:rgba(255,255,255,.15);
+
+border:1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+width:100%;
+
+max-width:380px;
+
+padding:18px;
+
+border-radius:22px;
+
+margin:auto;
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+transition:.4s;
+
+}
+
+.proposal-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+/* =====================================================
+Heading
+===================================================== */
+
+h6{
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+opacity:.8;
+
+font-weight:600;
+
+}
+
+#senderName{
+
+font-size:28px;
+
+font-weight:800;
+
+margin-top:8px;
+
+color:#fff;
+
+text-shadow:
+
+0 0 15px rgba(255,255,255,.3);
+
+}
+
+.proposal-card p{
+
+font-size:14px;
+
+margin-bottom:10px;
+
+opacity:.95;
+
+line-height:1.8;
+
+}
+
+
+/* =====================================================
+Heart
+===================================================== */
+
+.heart{
+
+ font-size:55px;
+margin-bottom:10px;
+
+animation:heartBeat 1.4s infinite;
+
+filter:drop-shadow(0 0 20px rgba(255,0,100,.5));
+
+}
+
+@keyframes heartBeat{
+
+0%{
+
+transform:scale(1);
+
+}
+
+25%{
+
+transform:scale(1.15);
+
+}
+
+50%{
+
+transform:scale(.95);
+
+}
+
+75%{
+
+transform:scale(1.10);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* =====================================================
+Gift
+===================================================== */
+
+.gift-box{
+
+font-size:45px;
+
+margin:15px 0;
+
+animation:giftJump 2s infinite;
+
+cursor:pointer;
+
+}
+
+@keyframes giftJump{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* =====================================================
+Buttons
+===================================================== */
+
+.btn{
+
+border-radius:60px;
+
+font-weight:600;
+
+transition:.3s;
+
+padding:8px 18px;
+
+font-size:14px;
+
+border:none;
+
+}
+
+.btn-warning{
+
+background:#ffd60a;
+
+color:#000;
+
+}
+
+.btn-warning:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 10px 30px rgba(255,214,10,.5);
+
+}
+
+.btn-success{
+
+background:#16c784;
+
+}
+
+.btn-success:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 12px 30px rgba(22,199,132,.5);
+
+}
+
+.btn-danger{
+
+background:#ff4d6d;
+
+}
+
+.btn-danger:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 12px 30px rgba(255,77,109,.5);
+
+}
+
+
+/* =====================================================
+Proposal Area
+===================================================== */
+
+#proposalArea{
+
+margin-top:15px;
+
+animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+#proposalArea h2{
+
+font-size:38px;
+
+font-weight:800;
+
+margin-bottom:20px;
+
+}
+
+
+/* =====================================================
+Divider
+===================================================== */
+
+hr{
+
+border:0;
+
+height:1px;
+
+background:rgba(255,255,255,.25);
+
+margin:12px 0;
+
+}
+
+/* =====================================================
+   Popup Width
+===================================================== */
+
+.modal-dialog{
+    max-width:350px !important;
+    margin:auto;
+}
+
+/* =====================================================
+Modal
+===================================================== */
+
+.modal-content{
+
+background:rgba(255,255,255,.95);
+
+border-radius:22px;
+
+color:#222;
+
+padding:8px;
+
+}
+
+.modal-body h2{
+
+font-weight:800;
+
+color:#ff2d55;
+
+}
+
+.modal-body p{
+
+font-size:14px;
+
+}
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.floating-hearts{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+pointer-events:none;
+
+z-index:0;
+
+}
+
+.floating-hearts span{
+
+position:absolute;
+
+bottom:-80px;
+
+font-size:24px;
+
+opacity:.7;
+
+animation:heartFloat linear infinite;
+
+filter:drop-shadow(0 0 8px rgba(255,255,255,.4));
+
+}
+
+.floating-hearts span:nth-child(1){
+
+left:5%;
+
+animation-duration:9s;
+
+}
+
+.floating-hearts span:nth-child(2){
+
+left:18%;
+
+font-size:30px;
+
+animation-duration:13s;
+
+}
+
+.floating-hearts span:nth-child(3){
+
+left:36%;
+
+animation-duration:11s;
+
+}
+
+.floating-hearts span:nth-child(4){
+
+left:55%;
+
+font-size:28px;
+
+animation-duration:15s;
+
+}
+
+.floating-hearts span:nth-child(5){
+
+left:74%;
+
+animation-duration:10s;
+
+}
+
+.floating-hearts span:nth-child(6){
+
+left:92%;
+
+font-size:32px;
+
+animation-duration:14s;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.8;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+/* =====================================================
+   GIFT GLOW EFFECT
+===================================================== */
+
+.gift-box{
+
+position:relative;
+
+}
+
+.gift-box::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.12);
+
+animation:giftGlow 2s infinite;
+
+z-index:-1;
+
+}
+
+@keyframes giftGlow{
+
+0%{
+
+transform:translate(-50%,-50%) scale(1);
+
+opacity:.5;
+
+}
+
+100%{
+
+transform:translate(-50%,-50%) scale(1.6);
+
+opacity:0;
+
+}
+
+}
+
+/* =====================================================
+   MODAL ANIMATION
+===================================================== */
+
+.modal.fade .modal-dialog{
+
+transform:scale(.7);
+
+transition:.35s;
+
+}
+
+.modal.show .modal-dialog{
+
+transform:scale(1);
+
+}
+
+.modal-body h1{
+
+font-size:55px;
+
+animation:heartBeat 1.2s infinite;
+
+}
+
+.modal-body button{
+
+margin-top:20px;
+
+padding:12px 35px;
+
+font-weight:600;
+
+border-radius:40px;
+
+}
+
+/* =====================================================
+   GLOW TEXT
+===================================================== */
+
+#senderName{
+
+animation:nameGlow 2.5s infinite alternate;
+
+}
+
+@keyframes nameGlow{
+
+from{
+
+text-shadow:0 0 5px white;
+
+}
+
+to{
+
+text-shadow:
+
+0 0 12px #fff,
+
+0 0 22px #ff7eb3,
+
+0 0 35px #ff2d55;
+
+}
+
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+.proposal-card{
+    padding:16px;
+    max-width:380px;
+}
+
+#senderName{
+
+font-size:34px;
+
+}
+
+#proposalArea h2{
+
+font-size:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.proposal-card{
+    padding:15px;
+    max-width:360px;
+    border-radius:18px;
+}
+
+.heart{
+
+font-size:70px;
+
+}
+
+.gift-box{
+
+font-size:60px;
+
+}
+
+#senderName{
+
+font-size:28px;
+
+}
+
+.proposal-card p{
+
+font-size:15px;
+
+}
+
+.btn{
+
+width:100%;
+
+margin-top:12px;
+
+}
+
+#noBtn{
+
+margin-left:0 !important;
+
+}
+
+.modal-body{
+
+padding:22px !important;
+
+}
+
+.modal-body h2{
+
+font-size:24px;
+
+}
+
+}
+
+@media(max-width:420px){
+
+.proposal-card{
+    padding:12px;
+    max-width:240px;
+}
+
+h6{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+}
+
+#senderName{
+
+font-size:24px;
+
+}
+
+#proposalArea h2{
+
+font-size:24px;
+
+}
+
+.heart{
+
+font-size:60px;
+
+}
+
+.gift-box{
+
+font-size:52px;
+
+}
+
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark{
+
+background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+
+}
+
+body.dark .proposal-card{
+
+background:rgba(20,20,20,.55);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+body.dark hr{
+
+background:rgba(255,255,255,.1);
+
+}
+
+body.dark .modal-content{
+
+background:#1b1b1b;
+
+color:#fff;
+
+}
+
+body.dark .modal-body h2{
+
+color:#ff5b9a;
+
+}
+
+body.dark .btn-warning{
+
+color:#111;
+
+}
+
+/* =====================================================
+   EXTRA SMOOTH
+===================================================== */
+
+button,
+.gift-box,
+.proposal-card{
+
+transition:all .35s ease;
+
+}
+
+.proposal-card:hover{
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.35);
+
+}
+
+.music-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+
+    width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
+
+    border-radius:50%;
+
+    z-index:9999;
+
+    font-size:22px;
+    line-height:1;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.music-btn:hover{
+    transform:scale(1.1);
+}
+
+@media(max-width:768px){
+
+.music-btn{
+
+top:15px;
+right:15px;
+width:50px;
+height:50px;
+
+}
+
+}
