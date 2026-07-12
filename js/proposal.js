@@ -229,8 +229,8 @@ musicBtn.addEventListener("click", function (e) {
 
 });
 
-function shareWebsite(){
+const shareBtn = document.getElementById("shareBtn");
 
+shareBtn.addEventListener("click", () => {
     window.location.href = "index.html";
-
-}
+});
