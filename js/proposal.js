@@ -33,6 +33,8 @@ const sender =
 
     const noBtn = document.getElementById("noBtn");
 
+    const noMessage = document.getElementById("noMessage");
+
     // ===============================
     // Open Gift
     // ===============================
@@ -53,25 +55,41 @@ const sender =
     // Running NO Button
     // ===============================
 
-    function moveButton() {
+   const messages = [
 
-        const card = document.querySelector(".proposal-card");
+    "🥺 Ek baar aur soch lo na...",
+    "❤️ Itni jaldi mana mat karo...",
+    "🌹 Bas ek chance de do...",
+    "🥹 Please... sirf ek baar Haan bol do...",
+    "💖 Mera dil mat todo...",
+    "😊 Haan bolne se duniya aur khoobsurat ho jayegi...",
+    "💕 Main sirf tumhara jawab chahta hoon...",
+    "😍 Mujhe lagta hai tum Haan hi bologe...",
+    "🤭 Nahi wala button aaj kaam nahi karega...",
+    "❤️ Chalo na... ek pyari si Haan bol do..."
+];
 
-        const maxX = card.clientWidth - noBtn.offsetWidth - 30;
+function moveButton() {
 
-        const maxY = card.clientHeight - noBtn.offsetHeight - 30;
+    const card = document.querySelector(".proposal-card");
 
-        const x = Math.random() * maxX;
+    const maxX = card.clientWidth - noBtn.offsetWidth - 20;
+    const maxY = card.clientHeight - noBtn.offsetHeight - 20;
 
-        const y = Math.random() * maxY;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-        noBtn.style.position = "absolute";
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
 
-        noBtn.style.left = x + "px";
+    // Random Message
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-        noBtn.style.top = y + "px";
+    noMessage.innerText = randomMessage;
+    noMessage.style.display = "block";
+}
 
-    }
 
     noBtn.addEventListener("mouseover", moveButton);
 
@@ -82,6 +100,14 @@ const sender =
         moveButton();
 
     });
+
+    noBtn.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    moveButton();
+
+});
 
     // ===============================
     // YES Button
