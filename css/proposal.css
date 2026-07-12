@@ -74,7 +74,7 @@ body{
     max-width:420px;
     margin:auto;
 
-    padding:24px;
+   padding:12px 20px;
 
     border-radius:24px;
 
@@ -699,7 +699,7 @@ hr{
 
         max-width:520px;
 
-        padding:25px;
+        padding:12px 20px;
 
         border-radius:24px;
 
@@ -762,7 +762,7 @@ hr{
 
         width:460px;
 
-        padding:22px 18px;
+        padding:12px 18px;
 
     }
 
@@ -865,7 +865,7 @@ button,
     .proposal-card{
         width:100%;
         max-width:100%;
-        padding:20px;
+        padding:12px 20px;
         border-radius:20px;
     }
 
