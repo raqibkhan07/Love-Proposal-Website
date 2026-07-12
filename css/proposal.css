@@ -729,12 +729,24 @@ hr{
 
     }
 
+       .mt-2{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:12px;
+        flex-wrap:nowrap;
+    }
+
     #yesBtn,
     #noBtn{
 
-        width:100%;
+        width:48%;
 
-        margin:8px 0;
+        margin:0;
+
+        font-size:18px;
+
+        padding:12px 0;
 
     }
 
@@ -879,9 +891,32 @@ button,
         line-height:1.7;
     }
 
-    #yesBtn,
-    #noBtn{
-        width:100%;
-        margin:10px 0;
+  
+}
+@media (max-width:768px){
+
+    #proposalArea .mt-2{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        gap:10px;
+
     }
+
+    #yesBtn{
+
+        width:48%;
+
+    }
+
+    #noBtn{
+
+        width:48%;
+
+    }
+
 }
