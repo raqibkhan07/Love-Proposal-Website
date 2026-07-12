@@ -159,29 +159,78 @@ function createPiece(){
 }
 
 
-const music = document.getElementById("bgMusic");
+// ============================
+// Background Music
+// ============================
+
+const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 
-let playing = false;
+let musicPlaying = false;
 
-musicBtn.addEventListener("click", () => {
+// Try autoplay
+window.addEventListener("load", () => {
 
-    if(playing){
+    bgMusic.volume = 0.5;
 
-        music.pause();
+    bgMusic.play()
+        .then(() => {
 
-        musicBtn.innerHTML="🔇";
+            musicPlaying = true;
+            musicBtn.innerHTML = "🔊";
 
-        playing=false;
+        })
+        .catch(() => {
 
-    }else{
+            // Browser blocked autoplay
+            console.log("Autoplay blocked.");
 
-        music.play();
+        });
 
-        musicBtn.innerHTML="🔊";
+});
 
-        playing=true;
+// First user click/touch starts music
+document.addEventListener("click", function startMusic() {
+
+    if (!musicPlaying) {
+
+        bgMusic.play();
+
+        musicPlaying = true;
+
+        musicBtn.innerHTML = "🔊";
+
+    }
+
+    document.removeEventListener("click", startMusic);
+
+}, { once: true });
+
+
+// Music Button
+
+musicBtn.addEventListener("click", function (e) {
+
+    e.stopPropagation();
+
+    if (bgMusic.paused) {
+
+        bgMusic.play();
+
+        musicBtn.innerHTML = "🔊";
+
+    } else {
+
+        bgMusic.pause();
+
+        musicBtn.innerHTML = "🔇";
 
     }
 
 });
+
+function shareWebsite(){
+
+    window.location.href = "index.html";
+
+}
