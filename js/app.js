@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Final Link
         const finalLink =
         baseUrl +
-        "surprise.html?from=" +
+        "Surprise.html?from=" +
         encodedName;
 
         generatedLink.value = finalLink;
