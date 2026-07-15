@@ -23,7 +23,9 @@ body{
     color:#fff;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
+padding-top:25px;
+padding-bottom:25px;
     position:relative;
 
     background:linear-gradient(
@@ -785,21 +787,24 @@ button,
 
 @media (max-width:768px){
 
-    body{
-        overflow-x:hidden;
-    }
+   body{
+    overflow-x:hidden;
+    align-items:flex-start;
+    padding-top:12px;
+    padding-bottom:20px;
+}
 
     .container{
-        width:100%;
-        padding:12px;
-    }
+    width:100%;
+    padding:6px 12px;
+}
 
     .proposal-card{
-        width:100%;
-        max-width:100%;
-        padding:12px 20px;
-        border-radius:20px;
-    }
+    width:100%;
+    max-width:100%;
+    padding:18px;
+    border-radius:20px;
+}
 
     #proposalArea h2{
         font-size:24px;

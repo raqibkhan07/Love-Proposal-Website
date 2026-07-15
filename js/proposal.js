@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const giftBtn = document.getElementById("giftBtn");
 
+    const giftBox = document.querySelector(".gift-box");
+
     const loveLetter = document.getElementById("loveLetter");
     const customMessageBox =document.getElementById("letterMessage");
 
@@ -105,9 +107,11 @@ if (receiverName && receiver !== "") {
 
         giftBtn.style.display = "none";
 
-        giftText.style.display = "none";
+giftText.style.display = "none";
 
-        loveLetter.style.display = "flex";
+giftBox.style.display = "none";
+
+loveLetter.style.display = "flex";
 
         const finalMessage =
             customMessage !== ""
