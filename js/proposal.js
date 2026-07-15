@@ -43,12 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set Sender / Receiver
     // ===============================
 
+    if (senderName) {
     senderName.innerText = sender;
-    senderAgain.innerText = sender;
+}
 
-    if (receiver !== "") {
-        receiverName.innerHTML = "💖 To : " + receiver;
-    }
+if (senderAgain) {
+    senderAgain.innerText = sender;
+}
+
+if (receiverName && receiver !== "") {
+    receiverName.innerHTML = "💖 To : " + receiver;
+}
 
     // ===============================
     // Music
