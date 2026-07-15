@@ -1,37 +1,92 @@
 // =======================================
-// Proposal Page
+// LoveOS Proposal Page
+// Part 1
 // =======================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // ===============================
-    // URL Params
+    // URL Parameters
     // ===============================
 
     const params = new URLSearchParams(window.location.search);
 
-    const senderParam = params.get("from");
+    const sender =
+        decodeURIComponent(params.get("from") || "Someone Special");
 
-const sender =
-    (!senderParam || senderParam === "null")
-    ? "Someone"
-    : decodeURIComponent(senderParam);
+    const receiver =
+        decodeURIComponent(params.get("to") || "");
 
-    document.getElementById("senderName").innerText = sender;
-
-    document.getElementById("senderAgain").innerText = sender;
+    const customMessage =
+        decodeURIComponent(params.get("msg") || "");
 
     // ===============================
     // Elements
     // ===============================
 
+    const senderName = document.getElementById("senderName");
+    const senderAgain = document.getElementById("senderAgain");
+    const receiverName = document.getElementById("receiverName");
+
     const giftBtn = document.getElementById("giftBtn");
+
+    const loveLetter = document.getElementById("loveLetter");
+    const customMessageBox = document.getElementById("customMessage");
+
+    const continueBtn = document.getElementById("continueBtn");
 
     const proposalArea = document.getElementById("proposalArea");
 
-    const yesBtn = document.getElementById("yesBtn");
+    const bgMusic = document.getElementById("bgMusic");
 
-    const noBtn = document.getElementById("noBtn");
+    // ===============================
+    // Set Sender / Receiver
+    // ===============================
+
+    senderName.innerText = sender;
+    senderAgain.innerText = sender;
+
+    if (receiver !== "") {
+        receiverName.innerHTML = "💖 To : " + receiver;
+    }
+
+    // ===============================
+    // Music
+    // ===============================
+
+    bgMusic.volume = 0.2;
+
+    // ===============================
+    // Type Writer Function
+    // ===============================
+
+    function typeWriter(text) {
+
+        customMessageBox.innerHTML = "";
+
+        let i = 0;
+
+        const speed = 40;
+
+        const typing = setInterval(() => {
+
+            if (i < text.length) {
+
+                customMessageBox.innerHTML += text.charAt(i);
+
+                i++;
+
+            } else {
+
+                clearInterval(typing);
+
+                continueBtn.style.display = "inline-block";
+
+            }
+
+        }, speed);
+
+    }
 
     // ===============================
     // Open Gift
@@ -43,19 +98,46 @@ const sender =
 
         giftBtn.style.display = "none";
 
+        loveLetter.style.display = "flex";
+
+        const finalMessage =
+            customMessage !== ""
+                ? customMessage
+                : "You are the most beautiful part of my life ❤️";
+
+        typeWriter(finalMessage);
+
+    });
+        // ===============================
+    // Continue Button
+    // ===============================
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const noMessage = document.getElementById("noMessage");
+
+    let noCount = 0;
+
+    continueBtn.addEventListener("click", () => {
+
+        loveLetter.style.display = "none";
+
         proposalArea.style.display = "block";
 
         proposalArea.scrollIntoView({
-            behavior: "smooth"
+
+            behavior: "smooth",
+            block: "center"
+
         });
 
     });
 
     // ===============================
-    // Running NO Button
+    // Funny Running NO Button
     // ===============================
 
-    function moveButton() {
+    function moveNoButton() {
 
         const card = document.querySelector(".proposal-card");
 
@@ -68,20 +150,54 @@ const sender =
         const y = Math.random() * maxY;
 
         noBtn.style.position = "absolute";
-
         noBtn.style.left = x + "px";
-
         noBtn.style.top = y + "px";
 
     }
 
-    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("mouseover", moveNoButton);
 
     noBtn.addEventListener("touchstart", function(e){
 
         e.preventDefault();
 
-        moveButton();
+        moveNoButton();
+
+    });
+
+    // ===============================
+    // NO Button Messages
+    // ===============================
+
+    noBtn.addEventListener("click", function(){
+
+        noCount++;
+
+        noMessage.style.display = "block";
+
+        if(noCount==1){
+
+            noMessage.innerHTML="🥺 Ek baar aur soch lo na...";
+
+        }
+
+        else if(noCount==2){
+
+            noMessage.innerHTML="❤️ Please... itna bhi mat satao.";
+
+        }
+
+        else if(noCount==3){
+
+            noMessage.innerHTML="😍 Mujhe lagta hai aap YES hi bolenge.";
+
+        }
+
+        else{
+
+            noMessage.innerHTML="😂 Theek hai... phir bhi main wait karunga.";
+
+        }
 
     });
 
@@ -93,83 +209,88 @@ const sender =
 
         startConfetti();
 
-        const modal = new bootstrap.Modal(
+        setTimeout(()=>{
 
-            document.getElementById("successModal")
+            const modal = new bootstrap.Modal(
 
-        );
+                document.getElementById("successModal")
 
-        modal.show();
+            );
+
+            modal.show();
+
+        },700);
+
+    });
+        // ===============================
+    // Share Button
+    // ===============================
+
+    const shareBtn = document.getElementById("shareBtn");
+
+    shareBtn.addEventListener("click", () => {
+
+        window.location.href = "index.html";
 
     });
 
-});
+}); // DOMContentLoaded END
 
 
 // =======================================
-// Simple Confetti
+// Premium Confetti
 // =======================================
 
-function startConfetti(){
+function startConfetti() {
 
-    for(let i=0;i<120;i++){
+    for (let i = 0; i < 150; i++) {
 
-        createPiece();
+        createConfetti();
 
     }
 
 }
 
-function createPiece(){
+function createConfetti() {
 
-    const piece=document.createElement("div");
+    const items = ["🎉","🎊","💖","💕","❤️","💗","✨"];
 
-    piece.innerHTML="🎉";
+    const piece = document.createElement("div");
 
-    piece.style.position="fixed";
+    piece.innerHTML = items[Math.floor(Math.random() * items.length)];
 
-    piece.style.left=Math.random()*100+"vw";
+    piece.style.position = "fixed";
 
-    piece.style.top="-30px";
+    piece.style.left = Math.random() * 100 + "vw";
 
-    piece.style.fontSize=(18+Math.random()*20)+"px";
+    piece.style.top = "-50px";
 
-    piece.style.zIndex="99999";
+    piece.style.fontSize = (18 + Math.random() * 20) + "px";
 
-    piece.style.pointerEvents="none";
+    piece.style.zIndex = "99999";
 
-    piece.style.transition="4s linear";
+    piece.style.pointerEvents = "none";
+
+    piece.style.transition = (3 + Math.random() * 2) + "s linear";
 
     document.body.appendChild(piece);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        piece.style.top="110vh";
+        piece.style.top = "110vh";
 
-        piece.style.transform=
+        piece.style.transform =
+            "rotate(" + (Math.random() * 720) + "deg)";
 
-        "rotate("+Math.random()*720+"deg)";
+        piece.style.left =
+            (Math.random() * 100) + "vw";
 
-    },30);
+    }, 50);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         piece.remove();
 
-    },4200);
+    }, 5000);
 
 }
-
-
-// ============================
-// Background Music
-// ============================
-
-const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 0.2;
-
-const shareBtn = document.getElementById("shareBtn");
-
-shareBtn.addEventListener("click", () => {
-    window.location.href = "index.html";
-});
