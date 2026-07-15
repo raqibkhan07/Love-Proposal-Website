@@ -93,6 +93,8 @@ if (receiverName && receiver !== "") {
 
     }
 
+    const giftText = document.getElementById("giftText");
+
     // ===============================
     // Open Gift
     // ===============================
@@ -102,6 +104,8 @@ if (receiverName && receiver !== "") {
         bgMusic.play().catch(() => {});
 
         giftBtn.style.display = "none";
+
+        giftText.style.display = "none";
 
         loveLetter.style.display = "flex";
 
