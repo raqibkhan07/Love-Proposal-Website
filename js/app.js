@@ -1,166 +1,146 @@
 // =============================
-// LoveLink App
+// LoveOS App
 // =============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // Form Elements
     const form = document.getElementById("loveForm");
     const senderName = document.getElementById("senderName");
+    const receiverName = document.getElementById("receiverName");
+    const message = document.getElementById("message");
 
+    // Share Elements
     const shareBox = document.querySelector(".share-box");
-
     const generatedLink = document.getElementById("generatedLink");
-
     const copyBtn = document.getElementById("copyBtn");
-
     const whatsappBtn = document.getElementById("whatsappBtn");
-
     const telegramBtn = document.getElementById("telegramBtn");
-
 
     // =============================
     // Generate Link
     // =============================
 
-    form.addEventListener("submit", function(e){
+    form.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        const name = senderName.value.trim();
+        const from = senderName.value.trim();
+        const to = receiverName.value.trim();
+        const msg = message.value.trim();
 
-        if(name===""){
-
+        if (from === "") {
             alert("Please enter your name ❤️");
-
+            senderName.focus();
             return;
-
         }
 
-        // URL Encode
-        const encodedName = encodeURIComponent(name);
+        if (to === "") {
+            alert("Please enter receiver name ❤️");
+            receiverName.focus();
+            return;
+        }
 
-        // Current Domain
-        const baseUrl = window.location.origin +
-                        window.location.pathname.replace("index.html","");
+        const baseUrl =
+            window.location.origin +
+            window.location.pathname.replace("index.html", "");
 
-        // Final Link
         const finalLink =
-        baseUrl +
-        "Surprise.html?from=" +
-        encodedName;
+            baseUrl +
+            "Surprise.html?from=" +
+            encodeURIComponent(from) +
+            "&to=" +
+            encodeURIComponent(to) +
+            "&msg=" +
+            encodeURIComponent(msg);
 
         generatedLink.value = finalLink;
 
-        shareBox.style.display="block";
+        shareBox.style.display = "block";
 
         shareBox.scrollIntoView({
-
-            behavior:"smooth"
-
+            behavior: "smooth"
         });
 
     });
-
-
 
     // =============================
     // Copy Link
     // =============================
 
-    copyBtn.addEventListener("click", function(){
+    copyBtn.addEventListener("click", function () {
 
-        if(generatedLink.value===""){
-
-            alert("Generate link first.");
-
+        if (generatedLink.value === "") {
+            alert("Please create your surprise first.");
             return;
-
         }
 
-        navigator.clipboard.writeText(
+        navigator.clipboard.writeText(generatedLink.value);
 
-            generatedLink.value
+        const oldText = copyBtn.innerHTML;
 
+        copyBtn.innerHTML = "✅ Copied";
+
+        setTimeout(() => {
+            copyBtn.innerHTML = oldText;
+        }, 2000);
+
+    });
+
+    // =============================
+    // WhatsApp Share
+    // =============================
+
+    whatsappBtn.addEventListener("click", function () {
+
+        if (generatedLink.value === "") {
+            alert("Please create your surprise first.");
+            return;
+        }
+
+        const from = senderName.value.trim();
+
+        const text =
+`💖 A special surprise is waiting for you!
+
+Someone created something beautiful just for you.
+
+🎁 Open Now👇
+
+${generatedLink.value}
+
+Made with ❤️ LoveOS`;
+
+        window.open(
+            "https://wa.me/?text=" + encodeURIComponent(text),
+            "_blank"
         );
 
-        copyBtn.innerHTML="✅";
-
-        setTimeout(()=>{
-
-            copyBtn.innerHTML='<i class="bi bi-copy"></i>';
-
-        },2000);
-
     });
 
-
-
     // =============================
-    // WhatsApp
+    // Telegram Share
     // =============================
 
-    whatsappBtn.addEventListener("click",function(){
+    telegramBtn.addEventListener("click", function () {
 
-        if(generatedLink.value===""){
-
-            alert("Generate link first.");
-
+        if (generatedLink.value === "") {
+            alert("Please create your surprise first.");
             return;
-
         }
 
-        const message =
-`❤️ Someone special has sent you a secret surprise...
-
-Open this ❤️
+        const text =
+`💖 Open Your Surprise ❤️
 
 ${generatedLink.value}`;
 
-        const url =
-"https://wa.me/?text=" +
-
-encodeURIComponent(message);
-
-        window.open(url,"_blank");
-
-    });
-
-
-
-    // =============================
-    // Telegram
-    // =============================
-
-    telegramBtn.addEventListener("click",function(){
-
-        if(generatedLink.value===""){
-
-            alert("Generate link first.");
-
-            return;
-
-        }
-
-        const message =
-`❤️ Open Your Secret Surprise
-
-${generatedLink.value}`;
-
-        const url =
-
-"https://t.me/share/url?url=" +
-
-encodeURIComponent(generatedLink.value)
-
-+
-
-"&text="
-
-+
-
-encodeURIComponent(message);
-
-        window.open(url,"_blank");
+        window.open(
+            "https://t.me/share/url?url=" +
+            encodeURIComponent(generatedLink.value) +
+            "&text=" +
+            encodeURIComponent(text),
+            "_blank"
+        );
 
     });
 

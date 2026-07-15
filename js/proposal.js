@@ -39,6 +39,8 @@ const sender =
 
     giftBtn.addEventListener("click", () => {
 
+        bgMusic.play().catch(() => {});
+
         giftBtn.style.display = "none";
 
         proposalArea.style.display = "block";
@@ -164,70 +166,7 @@ function createPiece(){
 // ============================
 
 const bgMusic = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-
-let musicPlaying = false;
-
-// Try autoplay
-window.addEventListener("load", () => {
-
-    bgMusic.volume = 0.5;
-
-    bgMusic.play()
-        .then(() => {
-
-            musicPlaying = true;
-            musicBtn.innerHTML = "🔊";
-
-        })
-        .catch(() => {
-
-            // Browser blocked autoplay
-            console.log("Autoplay blocked.");
-
-        });
-
-});
-
-// First user click/touch starts music
-document.addEventListener("click", function startMusic() {
-
-    if (!musicPlaying) {
-
-        bgMusic.play();
-
-        musicPlaying = true;
-
-        musicBtn.innerHTML = "🔊";
-
-    }
-
-    document.removeEventListener("click", startMusic);
-
-}, { once: true });
-
-
-// Music Button
-
-musicBtn.addEventListener("click", function (e) {
-
-    e.stopPropagation();
-
-    if (bgMusic.paused) {
-
-        bgMusic.play();
-
-        musicBtn.innerHTML = "🔊";
-
-    } else {
-
-        bgMusic.pause();
-
-        musicBtn.innerHTML = "🔇";
-
-    }
-
-});
+bgMusic.volume = 0.2;
 
 const shareBtn = document.getElementById("shareBtn");
 

@@ -23,11 +23,11 @@ body{
 
     overflow-x:hidden;
 
-    background:linear-gradient(-45deg,#ff4b91,#ff7eb3,#ff758c,#8f5cff);
+    background:linear-gradient(135deg,#ff5f9e,#ff85b3,#ffb6c1,#a855f7);
 
-    background-size:400% 400%;
+    background-size:300% 300%;
 
-    animation:bgMove 15s ease infinite;
+    animation:bgMove 12s ease infinite;
 
     color:#fff;
 
@@ -69,6 +69,8 @@ Navbar
 z-index:999;
 
 position:relative;
+
+backdrop-filter:blur(10px);
 
 }
 
@@ -114,27 +116,29 @@ Glass Card
 
 .glass-card{
 
-backdrop-filter:blur(20px);
+backdrop-filter:blur(25px);
 
-background:rgba(255,255,255,.15);
+background:rgba(255,255,255,.18);
 
-border:1px solid rgba(255,255,255,.25);
+border:1px solid rgba(255,255,255,.35);
 
 border-radius:30px;
 
-padding:35px;
+padding:40px;
 
 box-shadow:
 
-0 8px 40px rgba(0,0,0,.25);
+0 20px 60px rgba(0,0,0,.25);
 
-transition:.4s;
+transition:0.4s ease;
 
 }
 
 .glass-card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.01);
+
+box-shadow:0 25px 70px rgba(0,0,0,.35);
 
 }
 
@@ -145,9 +149,11 @@ Gift Icon
 
 .gift-icon{
 
-font-size:70px;
+font-size:75px;
 
 animation:jump 2s infinite;
+
+filter:drop-shadow(0 10px 20px rgba(255,255,255,.35));
 
 }
 
@@ -180,17 +186,25 @@ Heading
 
 .glass-card h2{
 
-font-weight:700;
+font-weight:800;
 
 font-size:34px;
 
-margin-bottom:10px;
+line-height:1.4;
+
+margin-bottom:15px;
+
+text-shadow:0 3px 15px rgba(0,0,0,.25);
 
 }
 
 .glass-card p{
 
-opacity:.9;
+opacity:.95;
+
+line-height:1.8;
+
+font-size:16px;
 
 margin-bottom:25px;
 
@@ -209,9 +223,23 @@ border-radius:18px;
 
 border:none;
 
-font-size:18px;
+background:rgba(255,255,255,.95);
+
+font-size:17px;
 
 padding-left:20px;
+
+transition:.3s;
+
+}
+
+textarea.form-control{
+
+height:130px;
+
+padding-top:15px;
+
+resize:none;
 
 }
 
@@ -234,7 +262,9 @@ border-radius:50px;
 
 font-weight:600;
 
-transition:.3s;
+transition:.35s ease;
+
+letter-spacing:.5px;
 
 }
 
@@ -250,7 +280,9 @@ border:none;
 
 background:#ff2b74;
 
-transform:scale(1.03);
+transform:translateY(-3px) scale(1.02);
+
+box-shadow:0 10px 25px rgba(255,0,93,.45);
 
 }
 
@@ -287,12 +319,15 @@ display:block;
 /* ===============================
 Footer
 ================================*/
-
 footer{
 
-font-size:15px;
+font-size:14px;
 
-opacity:.9;
+opacity:.85;
+
+padding-top:20px;
+
+color:white;
 
 }
 
@@ -331,7 +366,7 @@ font-size:25px;
 
 animation:heartMove linear infinite;
 
-opacity:.7;
+opacity:.45;
 
 }
 

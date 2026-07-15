@@ -186,7 +186,7 @@ hr{
 
     position:relative;
 
-    font-size:70px;
+    font-size:75px;
 
     cursor:pointer;
 
@@ -384,11 +384,12 @@ hr{
 #yesBtn,
 #noBtn{
 
-    min-width:135px;
 
     margin:8px;
 
     font-size:16px;
+
+    min-width:135px;
 
 }
 
@@ -440,7 +441,7 @@ hr{
 
     font-size:28px;
 
-    opacity:.8;
+    opacity:.45;
 
     animation:heartFloat linear infinite;
 
@@ -519,45 +520,6 @@ hr{
 
 }
 
-/* ==========================================
-   MUSIC BUTTON
-========================================== */
-
-.music-btn{
-
-    position:fixed;
-
-    top:20px;
-    right:20px;
-
-    width:58px;
-    height:58px;
-
-    border:none;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:22px;
-
-    background:white;
-
-    color:#ff4d6d;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
-
-    z-index:9999;
-
-}
-
-.music-btn:hover{
-
-    transform:rotate(15deg) scale(1.1);
-
-}
 
 /* ==========================================
    MODAL
@@ -700,23 +662,15 @@ hr{
     #yesBtn,
     #noBtn{
 
-        width:48%;
+         flex:1;
+
+         min-width:130px;
 
         margin:0;
 
         font-size:18px;
 
         padding:12px 0;
-
-    }
-
-    .music-btn{
-
-        width:52px;
-        height:52px;
-
-        top:15px;
-        right:15px;
 
     }
 
@@ -732,11 +686,13 @@ hr{
 
     .proposal-card{
 
-        width:460px;
+    width:100%;
 
-        padding:12px 18px;
+    max-width:100%;
 
-    }
+    padding:18px;
+
+}
 
     h6{
 
@@ -754,9 +710,11 @@ hr{
 
     .proposal-card p{
 
-        font-size:14px;
+font-size:15px;
 
-    }
+line-height:1.8;
+
+}
 
     .heart{
 
@@ -766,15 +724,17 @@ hr{
 
     .gift-box{
 
-        font-size:55px;
+        font-size:60px;
 
     }
 
     #proposalArea h2{
 
-        font-size:18px;
+font-size:22px;
 
-    }
+line-height:1.4;
+
+}
 
 }
 
@@ -816,8 +776,8 @@ body.dark .modal-body p{
 
 button,
 .proposal-card,
-.gift-box,
-.music-btn{
+.gift-box
+{
 
     transition:.35s ease;
 
@@ -904,6 +864,8 @@ button,
     width:100%;
 
     max-width:380px;
+
+     margin:auto;
 
     padding:30px;
 

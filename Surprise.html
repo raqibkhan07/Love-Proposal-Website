@@ -59,6 +59,8 @@
 
         text-align: center;
 
+        animation: popup 0.7s ease;
+
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
       }
 
@@ -123,7 +125,9 @@
 
         bottom: -50px;
 
-        font-size: 22px;
+        font-size: 18px;
+
+        opacity: 0.5;
 
         animation: float 12s linear infinite;
       }
@@ -196,6 +200,20 @@
           transform: rotate(0deg);
         }
       }
+
+      @keyframes popup {
+        0% {
+          opacity: 0;
+
+          transform: scale(0.8);
+        }
+
+        100% {
+          opacity: 1;
+
+          transform: scale(1);
+        }
+      }
     </style>
   </head>
 
@@ -215,18 +233,24 @@
     <div id="envelopeArea">
       <div class="envelope">💌</div>
 
-      <h3 class="mt-3">Is Letter Par Click Kijiye 💌</h3>
+      <h3 class="mt-3">Tap To Open Your Surprise 💌</h3>
     </div>
 
     <div class="card-box d-none" id="cardBox">
       <div class="heart">❤️</div>
 
-      <div id="sender">Thoda Sa Intezaar...please🥰</div>
+      <h4 class="mt-3 mb-2">💌 A Special Surprise From</h4>
 
-      <h3 class="mt-3"> Ne Dil Se Aapke Liye Ek Surprise Bheja Hai 💖</h3>
+      <div id="sender">Someone Special</div>
 
-      <p>Bas Ek Click Aur...
-Aapke Liye Ek Pyara Sa Surprise Taiyaar Hai... ❤️</p>
+      <h3 class="mt-3">
+        Someone has prepared something special just for you ❤️
+      </h3>
+
+      <p id="welcomeMessage">
+        A beautiful surprise is waiting for you. Take one more step and discover
+        a heartfelt message made especially for you. 💖
+      </p>
 
       <button
         id="openBtn"
@@ -234,7 +258,7 @@ Aapke Liye Ek Pyara Sa Surprise Taiyaar Hai... ❤️</p>
         style="display: none"
         onclick="openProposal()"
       >
-        🎁 Open Surprise
+        💖 Continue
       </button>
     </div>
 
@@ -242,20 +266,23 @@ Aapke Liye Ek Pyara Sa Surprise Taiyaar Hai... ❤️</p>
       const params = new URLSearchParams(window.location.search);
 
       const sender = params.get("from");
+      const receiver = params.get("to");
+      const message = params.get("msg");
 
-      if (sender) {
-        document.getElementById("sender").innerHTML =
-          decodeURIComponent(sender);
-      } else {
-        document.getElementById("sender").innerHTML = "Someone";
-      }
+      document.getElementById("sender").innerHTML = sender
+        ? decodeURIComponent(sender)
+        : "Someone Special";
 
       function openProposal() {
-        const senderName = sender && sender !== "null" ? sender : "Someone";
-
         window.location.href =
-          "proposal.html?from=" + encodeURIComponent(senderName);
+          "proposal.html?from=" +
+          encodeURIComponent(sender || "") +
+          "&to=" +
+          encodeURIComponent(receiver || "") +
+          "&msg=" +
+          encodeURIComponent(message || "");
       }
+
       const envelope = document.querySelector(".envelope");
       const cardBox = document.getElementById("cardBox");
       const openBtn = document.getElementById("openBtn");
