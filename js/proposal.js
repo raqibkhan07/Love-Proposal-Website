@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const giftBtn = document.getElementById("giftBtn");
 
     const loveLetter = document.getElementById("loveLetter");
-    const customMessageBox = document.getElementById("customMessage");
+    const customMessageBox =document.getElementById("letterMessage");
 
     const continueBtn = document.getElementById("continueBtn");
 
